@@ -14,10 +14,10 @@ def index():
 
 @app.route("/outcome", methods=["POST", "GET"])
 def weather():
-    city = str(request.form['name_input'])
+    city = str(request.form['name_input']).title()
     request_url = f"{BASE_URL}?appid={API_KEY}&lang=en&q={city}"
     response = requests.get(request_url)
-    
+
     if response.status_code == 200:
         data = response.json()
         weather = data['weather'][0]['description'].title()
