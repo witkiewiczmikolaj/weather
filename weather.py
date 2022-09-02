@@ -24,6 +24,6 @@ def weather():
         temperature = str(round(data['main']['temp'] - 273.15)) + " °C"
         flash("Weather in " + city + " is: " + weather + " " + temperature)
     else:
-        error = "Error: " + str(response.status_code)
+        error = "I couldn't find that city :( Error: " + str(response.status_code)
         flash(error)
     return render_template("index.html")
