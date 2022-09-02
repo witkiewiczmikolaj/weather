@@ -1,12 +1,15 @@
 body {
     background: rgb(26,26,26);
-    background: linear-gradient(90deg, rgba(26,26,26,1) 0%, rgba(57,57,57,1) 100%);
+    background: linear-gradient(60deg, rgba(26,26,26,1) 0%, rgba(57,57,57,1) 100%);
     text-align: center;
 }
 
 p {
-    color: rgb(240,68,55);
-    color: linear-gradient(90deg, rgba(240,68,55,1) 0%, rgba(251,175,54,1) 100%);
+    background: #EF4336;
+    background: linear-gradient(to top right, #EF4336 0%, #FBAF40 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+
     font-family: Arial;
     font-size: 4em;
     margin: 20px;
@@ -14,7 +17,7 @@ p {
 
 img {
     margin: 60px 0 30px 0;
-    border-radius: 15%;
+    border-radius: 30px;
 }
 
 input {
@@ -29,19 +32,19 @@ input {
 }
 
 input:focus {
-    border: solid 3px #393939;
+    border: solid 3px rgb(240,68,55);
     outline: none;
 }
 
 #check {
     transition: all 1s ease;
-    background-color: #EF4236;
+    background-color: #F6853C;
     color: white;
     width: 200px;
     font: bold;
 }
 
 #check:hover {
-    background-color: #F6853C;
+    background-color: #EF4236;
     cursor: pointer;
 }
