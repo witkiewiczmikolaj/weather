@@ -9,7 +9,7 @@ BASE_URL = "https://api.openweathermap.org/data/2.5/forecast"
 
 @app.route("/weather")
 def index():
-    flash("Enter a city name:")
+    flash("Enter a city:")
     return render_template("index.html")
 
 @app.route("/outcome", methods=["POST", "GET"])
