@@ -1,7 +1,7 @@
 
 # Weather app
 
-Shows weather for every city in the world for 5 next days
+Shows weather for every city in the world for next 4 days
 
 ## Deployment
 
