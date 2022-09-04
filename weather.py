@@ -32,4 +32,4 @@ def weather():
         error = "I couldn't find that city :( Error: " + str(response.status_code)
         flash(error)
     return render_template("index.html")
-    
+  
