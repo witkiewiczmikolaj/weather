@@ -1,10 +1,11 @@
 import requests
 from flask import Flask, render_template, request, flash
+import os
 
 app = Flask(__name__)
-app.secret_key = "ebeebe_ebeebe"
+app.secret_key = "xxxxxxxxxxxxxxxxxxx"
 
-API_KEY = "15959927002cae2d94c39c62f2266558"
+API_KEY = os.environ['API_KEY']
 BASE_URL = "https://api.openweathermap.org/data/2.5/forecast"
 
 @app.route("/weather")
