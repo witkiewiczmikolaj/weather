@@ -5,32 +5,32 @@ import os
 app = Flask(__name__)
 app.secret_key = "xxxxxxxxxxxxxxxxxxx"
 
-API_KEY = os.environ['API_KEY']
+API_KEY = "15959927002cae2d94c39c62f2266558"
 BASE_URL = "https://api.openweathermap.org/data/2.5/forecast"
 
-@app.route("/weather")
+@app.route("/")
 def index():
-    flash("Enter a city:")
-    return render_template("index.html")
+    welc = ("Enter a city:")
+    return render_template("index.html", welc = welc)
 
-@app.route("/outcome", methods=["POST", "GET"])
+@app.route("/outcome")
 def weather():
+    sliderValue = request.args.get('jsdata')
+    day = int(sliderValue) * 8
+    city = str(request.args.get('jsdata1')).title()
     
-    city = str(request.form['name_input']).title()
     request_url = f"{BASE_URL}?appid={API_KEY}&lang=en&q={city}"
     response = requests.get(request_url)
     data = response.json() 
         
     if response.status_code == 200:
-            
-        sliderValue = request.form['slider_value']
-        day = int(sliderValue) * 8
+        
         weather = data['list'][day]['weather'][0]['description'].title()
         temperature = str(round(data['list'][day]['main']['temp'] - 273.15)) + " °C"
-        flash("[Day " + sliderValue + "] weather in " + city + " is: " + weather + " " + temperature)
+        resp = ("[Day " + sliderValue + "] weather in " + city + " is: " + weather + " " + temperature)
 
     else:
-        error = "I couldn't find that city :( Error: " + str(response.status_code)
-        flash(error)
-    return render_template("index.html")
+        resp = "I couldn't find that city :( Error: " + str(response.status_code)
+        
+    return render_template("outcome.html", respp = resp)
   

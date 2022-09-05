@@ -8,18 +8,29 @@
     <body>
         <img src="https://i.ibb.co/jgc7V4n/logo2.png">
         <br>
-        <form action="outcome" method="post">
-            {% for message in get_flashed_messages()%}
-                <p>{{message}}</p>
-            {% endfor %}
-            <br>
-            <input type="text" name="name_input">
-            <br>
-            <p>Choose a day</p>
-            <input type="range" min="0" max="4" value="0" step="1" id="slider" name="slider_value">
-            <br>
-            <input type="submit" value="CHECK" id="check">
-            <br>
-        </form>
+        <p id="welc">{{welc}}</p>
+        <div id="place_for_outcome"></div>
+        <br>
+        <input type="text" id="search">
+        <br>
+        <p>Choose a day</p>
+        <br>
+        <input type="range" min="0" max="4" value="0" step="1" id="slider">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+        <script>
+             $("#slider").mouseup(function(){
+                var day = $(this).val();
+                var text = $("#search").val();
+                $("#welc").hide()
+                $.ajax({
+                    url: "/outcome",
+                    type: "get",
+                    data: {jsdata: day, jsdata1: text},
+                    success: function(response) {
+                        $("#place_for_outcome").html(response);
+                    },
+                    });
+                });
+        </script>
     </body>
 </html>
