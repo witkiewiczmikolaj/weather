@@ -18,9 +18,22 @@
         <input type="range" min="0" max="4" value="0" step="1" id="slider">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script>
-             $("#slider").mouseup(function(){
+            $("#slider").mouseup(function(){
                 var day = $(this).val();
                 var text = $("#search").val();
+                $("#welc").hide()
+                $.ajax({
+                    url: "/outcome",
+                    type: "get",
+                    data: {jsdata: day, jsdata1: text},
+                    success: function(response) {
+                        $("#place_for_outcome").html(response);
+                    },
+                    });
+                });
+            $("#search").keyup(function(){
+                var day = $("#slider").val();
+                var text = $(this).val();
                 $("#welc").hide()
                 $.ajax({
                     url: "/outcome",
