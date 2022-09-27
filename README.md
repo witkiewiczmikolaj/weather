@@ -15,5 +15,5 @@ Run app
 ```
 You can also check it out on:
 
-[Heroku](https://vveatherapp.herokuapp.com/weather)
+[Heroku](https://vveatherapp.herokuapp.com)
 
