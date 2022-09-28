@@ -34,15 +34,17 @@ def weather():
 
         fig = Figure()
         y = []
-        x = 0.5 + np.arange(40)
-        for day in range (len(data['list'])):
-            y.append(round(data['list'][day]['main']['temp'] - 273.15))
+        x = []
+        x = 0.5 + np.arange(8)
+        for i in range (0,8):
+            y.append(round(data['list'][day + i]['main']['temp'] - 273.15))
+        
         max_temp = max(y) + 2
         
         ax = fig.subplots()
         ax.bar(x, y, width=1, edgecolor="white", linewidth=0.7)
 
-        ax.set(xlim=(0, 40), xticks=np.arange(1, 40, 3),
+        ax.set(xlim=(0, 8), xticks=np.arange(1, 8),
                ylim=(0, max_temp), yticks=np.arange(0, max_temp, 2))
 
         buf = BytesIO()
