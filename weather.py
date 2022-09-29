@@ -15,10 +15,11 @@ def index():
 
 @app.route("/outcome")
 def weather():
-    sliderValue = request.args.get('jsdata')
+    sliderValue = request.args.get('day')
     day = int(sliderValue) * 8
-    city = str(request.args.get('jsdata1')).title()
-    change = False
+    city = str(request.args.get('text')).title()
+    change = request.args.get('change')
+    
     request_url = f"{BASE_URL}?appid={API_KEY}&lang=en&q={city}"
     response = requests.get(request_url)
     data = response.json() 

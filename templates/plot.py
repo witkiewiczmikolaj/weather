@@ -21,18 +21,18 @@ def plot(data, day, change):
     ax.set_facecolor("#292929")
     ax.set_xlabel('Hour', color="#F15738")
     ax.set_ylabel('°C', rotation=0, loc="top", color="#F15738")
-    if change:
+    ax.spines['bottom'].set_color('#292929')
+    ax.spines['top'].set_color('#292929') 
+    ax.spines['right'].set_color('#292929')
+    ax.spines['left'].set_color('#292929')
+    ax.tick_params(axis='x', colors='#F15738')
+    ax.tick_params(axis='y', colors='#F15738')
+    
+    if change == "bar":
         ax.bar(x, y, width=0.7, color="#FBAF40", edgecolor="#F15738", linewidth=3)
-        ax.spines['bottom'].set_color('#292929')
-        ax.spines['top'].set_color('#292929') 
-        ax.spines['right'].set_color('#292929')
-        ax.spines['left'].set_color('#292929')
-        ax.tick_params(axis='x', colors='#F15738')
-        ax.tick_params(axis='y', colors='#F15738')
+        
     else:
         ax.plot(x, y, color="#F15738", linewidth=3)
-        ax.tick_params(axis='x', colors='#F15738')
-        ax.tick_params(axis='y', colors='#F15738')
         ax.fill_between(x,y,color="#FBAF40")
 
     ax.set(xlim=(-0.5, 7.5), xticks=np.arange(0, 8), ylim=(0, max_temp), yticks=np.arange(0, max_temp, 2))

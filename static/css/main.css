@@ -45,6 +45,28 @@ input:focus {
     outline: none;
 }
 
+button {
+    width: 60px;
+    height: 40px;
+    margin: 20px;
+    border: none;
+    border-radius: 5px;
+    font-family: "rubiklight";
+    font-weight: 900;
+    text-align: center;
+    font-size: 1.3em;
+    background-color: #FBAF40;
+}
+
+button:focus {
+    border: solid 3px #FBAF40;
+    outline: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
 #check {
     transition: all 1s ease;
     background-color: #F6853C;
