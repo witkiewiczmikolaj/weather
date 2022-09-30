@@ -28,8 +28,10 @@ def weather():
         
         weather = data['list'][day]['weather'][0]['description'].title()
         temperature = str(round(data['list'][day]['main']['temp'] - 273.15)) + " °C"
-        clouds = " CLouds: " + str(data['list'][day]['clouds']['all']) + "%"
-        resp = ("[Day " + sliderValue + "] weather in " + city + " is: " + weather + " " + temperature + "<br>" + clouds)
+        clouds = " Clouds: " + str(data['list'][day]['clouds']['all']) + "%,"
+        wind = " Wind: " + str(data['list'][day]['wind']['speed']) + "m/s,"
+        humidity = " Humidity: " + str(data['list'][day]['main']['humidity']) + "%"
+        resp = ("<p>[Day " + sliderValue + "] weather in " + city + " is: " + weather + " " + temperature + "</p><br><p>" + clouds + wind + humidity + "</p>")
         img = plot(data, day, change)
 
     else:
