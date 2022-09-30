@@ -31,11 +31,12 @@ def weather():
         clouds = " Clouds: " + str(data['list'][day]['clouds']['all']) + "%,"
         wind = " Wind: " + str(data['list'][day]['wind']['speed']) + "m/s,"
         humidity = " Humidity: " + str(data['list'][day]['main']['humidity']) + "%"
-        resp = ("<p>[Day " + sliderValue + "] weather in " + city + " is: " + weather + " " + temperature + "</p><br><p>" + clouds + wind + humidity + "</p>")
+        icon = "http://openweathermap.org/img/w/" + data['list'][day]['weather'][0]['icon'] + ".png"
+        resp = ("<p>[Day " + sliderValue + "] weather in " + city + " is: <img src="+ icon + ">" + weather + " " + temperature + "</p><br><p>" + clouds + wind + humidity + "</p>")
         img = plot(data, day, change)
 
     else:
-        resp = "I couldn't find that city :("
+        resp = "<p>I couldn't find that city :(</p>"
         img = "<p>Error:" + str(response.status_code) + "</p>"
     return render_template("outcome.html", respp = resp, img = img)
 
